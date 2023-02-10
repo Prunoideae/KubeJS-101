@@ -31,10 +31,10 @@ StartupEvents.registry("item", event => {
          * Creates the item with the name, if no namespace is specified,
          * it will use "kubejs" as namespace (so it will be 
          * "kubejs:test_item" in game), you can also specify other namespaces,
-         * so people might think that the item comes from a specific mod,
-         * like if you create some very Farmer's Delight-ish food, then you can
-         * give them such namespace to make people feel more consistent about
-         * the item!
+         * so people might think that the item has some specific usage.
+         * 
+         * But remember not to use other mods' namespace, since user would 
+         * report to original mod issue tracker if anything goes wrong!
          */
         event.create("test_item")
             /**
@@ -88,11 +88,14 @@ StartupEvents.registry("block", event => {
     if (false) {
         event.create("test_block")
             /**
-             * Sets the texture of a side of the block
+             * Sets the texture of a side of the block.
              */
             .textureSide("down", "botania:block/abstruse_platform")
             /**
              * Sets the texture of all sides of the block
+             * 
+             * By default, this would be in {namespace}:block/{block_id},
+             * making all sides using a same texture
              */
             .textureAll("botania:block/alfheim_portal")
     }
